@@ -1,0 +1,33 @@
+run:
+  issues-exit-code: 1
+  tests: true
+  timeout: 10m
+  skip-dirs-use-default: true
+  skip-dirs: 
+    - vendor/
+  skip-files:
+    - file_to_skip.go
+
+linters-settings:
+  gocritic:
+    disabled-checks: ["fieldAlignment"]
+
+linters:
+  enable-all: true
+  disable:
+    - lll
+    - prealloc
+
+linters-settings:
+  govet:
+    check-shadowing: false
+    check-range-loops: true
+    check-unused-params: true
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+
+fail:
+  severity: error
+  confidence: 0.9
